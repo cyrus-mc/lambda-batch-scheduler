@@ -43,9 +43,3 @@ FROM test AS deploy
 # package the lambda up into "lambda.zip"
 
 RUN npm run package
-
-#FROM deploy as run
-
-#ENV LD_LIBRARY_PATH=./lib
-
-#RUN npm run start
