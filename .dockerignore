@@ -1,0 +1,24 @@
+### git files
+.git
+.gitignore
+README.md
+
+lambda.zip
+
+Dockerfile
+.dockerignore
+.scannerwork
+
+### Node template
+# Logs
+logs
+*.log
+npm-debug.log*
+node_modules
+build
+.idea
+.vscode
+
+# oracle libraries
+lib/lib*.so*
+dbdata

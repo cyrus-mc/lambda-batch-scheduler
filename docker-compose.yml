@@ -1,0 +1,26 @@
+version: '3'
+services:
+  lambda:
+    build:
+      context: .
+    image: lambda:latest
+    environment:
+      - LD_LIBRARY_PATH=./lib
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
+    command:
+      - npm
+      - run
+      - start
+    volumes:
+      - ./build:/src/build
+      - ./lib:/src/lib
+    links:
+      - oracle
+  oracle:
+    image: sath89/oracle-12c:latest
+    ports:
+      - 1521:1521
+    volumes:
+      - ./dbdata:/u01/app/oracle
